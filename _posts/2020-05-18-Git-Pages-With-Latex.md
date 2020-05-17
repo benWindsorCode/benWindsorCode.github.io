@@ -39,5 +39,5 @@ The steps are as follows:
 </footer>
 ```
 
-4. Embed any maths you want inside your pages within the \$\$ tags to see rendered maths such as $$x\inX$$.
+4. Embed any LaTeX as you would inside tags such as  \$\$x \\in X \$\$ to see the maths properly rendered as $$x \in X$$.
 
