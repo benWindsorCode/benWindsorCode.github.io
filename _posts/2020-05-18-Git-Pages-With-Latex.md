@@ -19,7 +19,6 @@ The steps are as follows:
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.1.1/katex.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.1.1/katex.min.js"></script>
 ```
-
 3. In your layouts/default.html file create a footer tag at the end of your page just before the close of your html tag and add the following code to setup all text included between \$\$ signs to be rendered properly as LaTeX
 
 ```
@@ -40,6 +39,5 @@ The steps are as follows:
 	</script>
 </footer>
 ```
-
 4. Embed any LaTeX as you would inside tags such as  \$\$H\_1(X) = \\mathbb\{Z\} \$\$ to see the maths properly rendered as $$H_1(x) = \mathbb{Z}$$.
 
