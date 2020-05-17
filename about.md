@@ -15,7 +15,7 @@ I have strong interests in:
 
 ### Academic Background
 
-I completed a Masters of Mathematics (MMath) at the University of Warwick, graduating in the summer of 2018. My dissertation was focused on Group Homology, studying under [Prof. Marco Schlichting](https://warwick.ac.uk/fac/sci/maths/people/staff/marco_schlichting/).
+I completed a Masters of Mathematics (MMath) at the University of Warwick, graduating in the summer of 2018. My dissertation was focused on Group Homology, studying under [Prof. Marco Schlichting](https://warwick.ac.uk/fac/sci/maths/people/staff/marco_schlichting/). You can read my dissertation [here (PDF Warning!)](static/Ben_Windsor_Masters_Dissertation.pdf) if curious. 
 
 ### Contact me
 
