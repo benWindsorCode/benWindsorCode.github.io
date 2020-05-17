@@ -39,5 +39,5 @@ The steps are as follows:
 	</script>
 </footer>
 ```
-4. Embed any LaTeX as you would inside tags such as  \$\$H\_1(X) = \\mathbb\{Z\} \$\$ to see the maths properly rendered as $$H_1(x) = \mathbb{Z}$$.
+4. Embed any LaTeX as you would inside tags such as  \$\$H\_1(X) = \\Z \$\$ to see the maths properly rendered as $$H_1(x) = \Z$$. (Note the slight oddity with KaTeX where some of the standard maths fonts are not quite as you may expect, for example instead of \\mathbb\{Z\} you have to use \\Z, see more info [here](https://katex.org/docs/supported.html).)
 
