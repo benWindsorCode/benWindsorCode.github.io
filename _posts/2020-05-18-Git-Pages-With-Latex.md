@@ -10,6 +10,7 @@ The steps are as follows:
 1. Fork the [jekyll-now](https://github.com/barryclark/jekyll-now) repo and follow the instructions there to get your own \[username\].github.io site setup.
 
 2. In your layouts/default.html file, add the following into your header to bring in jQuery and KaTex
+
 ```
 <!-- Load jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -20,6 +21,7 @@ The steps are as follows:
 ```
 
 3. In your layouts/default.html file create a footer tag at the end of your page just before the close of your html tag and add the following code to setup all text included between \$\$ signs to be rendered properly as LaTeX
+
 ```
 <footer>
 	<!-- Parse the Latex divs with Katex-->
@@ -39,5 +41,5 @@ The steps are as follows:
 </footer>
 ```
 
-4. Embed any LaTeX as you would inside tags such as  \$\$x \\in X \$\$ to see the maths properly rendered as $$x \in X$$.
+4. Embed any LaTeX as you would inside tags such as  \$\$H\_1(X) = \\mathbb\{Z\} \$\$ to see the maths properly rendered as $$H_1(x) = \mathbb{Z}$$.
 
