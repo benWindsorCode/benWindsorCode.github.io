@@ -3,7 +3,7 @@ layout: post
 title: How To Setup Git Pages With Latex Rendering
 ---
 
-Setting up a Git Pages blog was surprisingly easy, however one issue which was took some fiddling to solve was the ability to embed LaTeX into my blog so that I can easily blog about mathematical topics. I wanted to start by detailing how you can setup LaTeX in your blogs to save you the same fiddling I had to go through. Main credit for the below code goes to [Varun Agrawal](https://varunagrawal.github.io/2018/03/27/latex-jekyll/), the below transplants this setup into the basic git jekyll-now setup and fixes a bug where jQuery wasn't included.
+Embedding LaTeX into your blog is a must-have feature for anyone who wants to blog about mathematics topics. Having just set this up I wanted to document it for easy use for anyone setting up a Git Pages blog using Jekyll. Main credit for the below code goes to [Varun Agrawal](https://varunagrawal.github.io/2018/03/27/latex-jekyll/), the below transplants this setup into the basic git jekyll-now setup and fixes a bug where jQuery wasn't included.
 
 The steps are as follows:
 
