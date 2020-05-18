@@ -19,7 +19,22 @@ The steps are as follows:
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
 		```
-3. In your layouts/default.html file create a footer tag at the end of your page just before the close of your html tag and add the following code to setup all text included between \$\$ signs to be rendered properly as LaTeX
+3. Enable KaTeX in your \_config.yml file by adding two lines. Firstly add the line 'markdown: kramdown' into your config, then under then 'kramdown:' section of your config, add the setting 'math_engine: mathjax'. After completing this, that part of my config looks as follows.
+		```	
+		markdown: kramdown 
+
+		# Jekyll 3 now only supports Kramdown for Markdown
+		kramdown:
+			# Use GitHub flavored markdown, including triple backtick fenced code blocks
+			input: GFM
+			math_engine: mathjax
+			# Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+			syntax_highlighter: rouge
+			syntax_highlighter_opts:
+				# Use existing pygments syntax highlighting css
+				css_class: 'highlight'
+		```
+4. In your layouts/default.html file create a footer tag at the end of your page just before the close of your html tag and add the following code to setup all text included between \$\$ signs to be rendered properly as LaTeX
 
 		```
 		<footer>
@@ -39,5 +54,5 @@ The steps are as follows:
 			</script>
 		</footer>
 		```
-4. Embed any LaTeX as you would inside tags such as  \$\$H\_1(X) = \\Z \$\$ to see the maths properly rendered as $$H_1(x) = \Z$$. (Note the slight oddity with KaTeX where some of the standard maths fonts are not quite as you may expect, for example instead of \\mathbb\{Z\} you have to use \\Z, see more info [here](https://katex.org/docs/supported.html).)
+5. Embed any LaTeX as you would inside tags such as  \$\$H\_1(X) = \\Z \$\$ to see the maths properly rendered as $$H_1(x) = \Z$$. (Note the slight oddity with KaTeX where some of the standard maths fonts are not quite as you may expect, for example instead of \\mathbb\{Z\} you have to use \\Z, see more info [here](https://katex.org/docs/supported.html).)
 
