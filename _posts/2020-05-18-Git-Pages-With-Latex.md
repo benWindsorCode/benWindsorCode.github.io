@@ -20,10 +20,9 @@ The steps are as follows:
 		<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
 		```
 3. Enable KaTeX in your \_config.yml file by adding two lines. Firstly add the line 'markdown: kramdown' into your config, then under then 'kramdown:' section of your config, add the setting 'math_engine: mathjax'. After completing this, that part of my config looks as follows.
-		```	
-		markdown: kramdown 
-
-		# Jekyll 3 now only supports Kramdown for Markdown
+    ```	
+    markdown: kramdown 
+    # Jekyll 3 now only supports Kramdown for Markdown
 		kramdown:
 			# Use GitHub flavored markdown, including triple backtick fenced code blocks
 			input: GFM
@@ -33,7 +32,7 @@ The steps are as follows:
 			syntax_highlighter_opts:
 				# Use existing pygments syntax highlighting css
 				css_class: 'highlight'
-		```
+    ```
 4. In your layouts/default.html file create a footer tag at the end of your page just before the close of your html tag and add the following code to setup all text included between \$\$ signs to be rendered properly as LaTeX
 
 		```
