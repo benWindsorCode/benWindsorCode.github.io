@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-My name is Ben Windsor and I'm a Strat working at Goldman Sachs in London. 
+My name is Ben Windsor and I'm a Strat working at an investment bank in London.
 
 ### Interests and Skills
 
@@ -13,7 +13,7 @@ I have strong interests in:
 - Good development practices
 - Mathematics (pure and applied)
 
-While at Goldmans I have worked both in the technology division and as a strat. In tech I gained strong a strong Java and technical grounding, deploying live trading systems to production and working with both the front end and back end of these projects. We used Test Driven Development to drive our projects and I took the lead in the testing of the FIX portion of our trading application. As a Strat I am now learning about the funding business as well as working on more quantitative projects. 
+I have worked both as an engineer and as a strat. In the engineering division I gained strong a strong Java and technical grounding, deploying live trading systems to production and working with both the front end and back end of these projects. We used Test Driven Development to drive our projects and I took the lead in the testing of the FIX portion of our trading application. As a Strat I am now learning about the funding business as well as working on more quantitative projects. 
 
 ### Academic Background and Research Experience
 
