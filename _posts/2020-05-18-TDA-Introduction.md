@@ -39,13 +39,13 @@ For a circle which we denote $$S^1$$:
 - $$H_n(S^1) = 0$$ for all $$n > 1$$.
 
 For a sphere which we denote $$S^2$$:
-- $$H_0(s^1) = \Z$$, (we have one piece of data, the sphere in our space)
+- $$H_0(S^2) = \Z$$, (we have one piece of data, the sphere in our space)
 - $$H_1(S^2) = 0$$, (the sphere does not have the same 1D hole as a cirlce)
 - $$H_2(S^2) = \Z$$, (the sphere has a 'hole' but this time it contains volume so its one dimension up)
 - $$H_n(S^2) = 0$$ for all $$n > 2$$.
 
 For a torus, which we denote $$T$$:
-- $$H_0(s^1) = \Z$$, (we have one piece of data, the torus in our space)
+- $$H_0(T) = \Z$$, (we have one piece of data, the torus in our space)
 - $$H_1(T) = \Z^2$$, (the torus has a ring going both ways around it, so two lots of the 1D homology a circle has)
 - $$H_2(T) = \Z$$, (the torus also encloses volume like a sphere, so has 2D homology)
 - $$H_n(T) = 0$$ for all $$n > 2$$.
