@@ -39,7 +39,7 @@ For a circle which we denote $$S^1$$:
 - $$H_n(S^1) = 0$$ for all $$n > 1$$.
 
 For a sphere which we denote $$S^2$$:
-- $$H_0(s^2) = \Z$$, (we have one piece of data, the sphere in our space)
+- $$H_0(S^2) = \Z$$, (we have one piece of data, the sphere in our space)
 - $$H_1(S^2) = 0$$, (the sphere does not have the same 1D hole as a cirlce)
 - $$H_2(S^2) = \Z$$, (the sphere has a 'hole' but this time it contains volume so its one dimension up)
 - $$H_n(S^2) = 0$$ for all $$n > 2$$.
