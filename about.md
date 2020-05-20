@@ -25,4 +25,4 @@ I also worked on two funded summer research projects in my time at Warwick, fund
 
 ### Contact me
 
-LinkedIn: [Ben Windsor](www.linkedin.com/in/ben-windsor-01a05b161)
+LinkedIn: [Ben Windsor](http://www.linkedin.com/in/ben-windsor-01a05b161)
