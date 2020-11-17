@@ -1,23 +1,48 @@
 ---
 layout: post
-title: Emacs Lisp (Elisp) Tutorial
+title: Emacs Lisp Beginners Tutorial: Getting Started With Emacs Lisp Hands On
 ---
 
-## What is Elisp
-Emacs-Lisp is a programming language that the text editor Emacs is programmed in, and allows users to interact, customise and extend emacs functionality. I will assume for the sake of this post that you already know what Emacs is and are here because you would like to experiment with Elisp. I will also assume you can program in some 'standard' language like Python/Java/C/C++/JavaScript etc. so you understand programming concepts like variables, functions and parameters. This will be an example based tutorial, based around showing rather than telling. Through useful examples you'll see some of the basic operations and functions you can use in Elisp. 
+## What is Emacs Lisp
+Emacs Lisp is the programming language that forms the foundation of the Emacs text editor. It also allows users to interact, customise and extend emacs functionality. I will assume you already know what Emacs is and would like to experiment with Elisp. I will also assume you know basic programming concepts like variables, functions and parameters. This will be an example based tutorial, centered around showing rather than telling you'll see enough to get you started with Emacs Lisp and to interact with Emacs through code.
 
-I would encourage you to run and experiment with each example in this file and hopefully have some fun writing some code! 
+I would encourage you to run and experiment with each and every example in this post and hopefully have some fun writing some code! 
 
-## The Very Basics
-Open emacs, type into your buffer the following
+## The Very Basics: Lets Go
+Open (your preferred flavour of) Emacs and type the following into an empty buffer 
 ``` emacs-lisp
 (+ 2 2)
 ```
-and put your cursor over the end of the line and type C-x C-e (I will also assume you know how to execute basic Emacs commands). You'll see in the line at the bottom of your screen that the output '4' appears. You have sucesfully executed your first line of Emacs-Lisp. You may have noticed that Lisp uses a different order of operations than languages like Python or C++, Lisp's order of operations is somewhat similar to Reverse-Polish-Notaiton (RPN) and is similar to languages like Haskell where you specify 'function arg1 arg2 ...'. For example in maths you may write 2 - (3 + 4) but in elisp you'd write
+Now put your cursor over the end of the line and type C-x C-e. You'll see at the bottom of your screen that the output '4' appears. You have sucesfully executed your first line of Emacs-Lisp. 
+
+You will have noticed that Emacs Lisp (and Lisp dialects in general) uses a different order of operations than languages like Python or C++, Lisp's order of operations is akin to Reverse-Polish-Notaiton (RPN) and is similar to languages like Haskell where you specify 'function arg1 arg2 ...' which will execute function(arg1, arg2, ...). For another example where you may write 2 - (3 + 4) Emacs Lisp you'll write
 ``` emacs-lisp
 (- 2 (+ 3 4))
 ```
 to achieve the same result. That is, perform the minus operation on 2 and (+ 3 4) where (+ 3 4 ) means perform the + operation on 3 and 4. Hence you add 3 and 4 then perform (- 2 7) to get -5 (try running the line of code with C-x C-e to confirm this).
+
+You can call functions in the same way, for example you could press 'M-x describe-bindings' all this is doing is calling the describe-bindings function, you can hence call it from code
+``` emacs-lisp
+(describe-bindings)
+```
+by pressing C-x C-e on the last char of that snippet you'll see the same result as 'M-x describe-bindings'. We will return later in this post to other emacs functions you can call that will be useful.
+
+I will pause to mention at this point, there is a lot im skipping over in this basics, this is not to teach you Emacs Lisp, its to teach you enough to be able to go out and experiment. At the end of this post I will leave a list of next steps, I dont want to reproduce the contents of the Emacs Lisp manual as it is already excellent. 
+
+## Flow Control
+We will cover only a simlpe if/else statement as this will serve your basic purposes and help you get a better feel for the Emacs Lisp syntax. The structure of an if/else in Emacs Lisp is
+``` emacs-lisp
+(if (condition)
+    (execute if condition true)
+    (execute if condition false))
+```
+so for example if you want to print out something based on if your current line number we could write
+``` emacs-lisp
+(if (eq (what-line) "Line 20")
+    (princ "Im at line 20")
+    (princ "Im not at line 20"))
+```
+note the brackets around what-line to call it.
 
 ## Writing Functions
 The defun keyword is used to define a function in elisp. The pattern is as follows
@@ -32,27 +57,6 @@ for examxple a function taking two numbers and adding them would look like
 
 (add-numbers 3 5)
 ```
-
-## Interacting With Emacs
-In order to make a function callable from within the emacs interface you need the 'interactive' keyword. This exposes your function to M-x. If a function is marked with 'interactive' you can then call M-x function-name, and the function will be executed. For example here is a function which takes your name and inserts it at the end of the current buffer
-``` emacs-lisp
-(defun name-func (name)
-    (interactive "MName:")
-    (goto-char (point-max))
-    (insert name))
-```
-First execute this code either with C-x C-e or with M-x eval-buffer, and then navigate to a new buffer and call M-x name-func. You can then enter a name, press enter and the name will be printed in the buffer.
-
-You will notice a letter 'M' prefixing the word 'Name' in the interact clause of the function. This is a character code which defines the type of data the input buffer will take, there are many options here which can be found here: https://www.gnu.org/software/emacs/manual/html_node/elisp/Interactive-Codes.html
-
-Here we have an example taking two pieces of input
-``` emacs-lisp
-(defun name-func (name place)
-    (interactive "MName:\nMPlace:")
-    (goto-char (point-max))
-    (insert "I am " name " from " place))
-```
-printing 'I am x from y' at the end of your current file when you call it with M-x name-func.
 
 ## Manipulating The Buffer
 The main functions we will care about are:
@@ -73,4 +77,47 @@ You can also try the following function
 ``` emacs-lisp
 (goto-char 0)
 ```
-which will take you to the 0'th character of a file. 
+which will take you to the 0'th character of a file. You can and should experiment with (goto-char (point-max)) and (goto-char (point-min)) too.
+
+From here you now have enough knowledge to jump around a buffer. For example chaining (goto-char 0) and then a search-forward you can easily search a buffer for a piece of text. 
+
+## Interacting With Emacs
+In order to make a function callable from within the emacs interface you need the 'interactive' keyword. This exposes your function to M-x. If a function is marked with 'interactive' you can then call M-x function-name, and the function will be executed. The format of an interactive function is as follows
+``` emacs-lisp
+(defun function-name (param1, param2, ...)
+    "String defining the functio and what param1, param2 etc. are used for"
+    (interactive "special string to fetch your params")
+    (statement 1 to execute)
+    (statement 2 to execute)
+    (...))
+```
+That special string to fetch your params is made up of character codes followed by text to display in the buffer. For example to capture a string we use 'M', this can be used to capture a name for exmaple here is a function which takes your name and inserts it at the end of the current buffer
+``` emacs-lisp
+(defun name-func (name)
+    "A basic function inserting NAME at the end of the file."
+    (interactive "MName:")
+    (goto-char (point-max))
+    (insert name))
+```
+First execute this code either with C-x C-e or with M-x eval-buffer, and then navigate to a new buffer and call M-x name-func. You can then enter a name, press enter and the name will be printed in the buffer.
+
+There are many more character code options here which can be found here: https://www.gnu.org/software/emacs/manual/html_node/elisp/Interactive-Codes.html
+
+You can use a new line to separate input from the user as demonstrated here taking a name and place from the user
+``` emacs-lisp
+(defun name-func (name place)
+    "Take a name and place from the user and print a string with these values."
+    (interactive "MName:\nMPlace:")
+    (goto-char (point-max))
+    (insert "I am " name " from " place))
+```
+printing 'I am x from y' at the end of your current file when you call it with M-x name-func.
+
+## Next Steps
+Congratulations you can now write and evaluate some Emacs Lisp, this is just the tip of the iceburg. Next up you should understand the groundings of Emacs Lisp better, ideally from the manual itself, in particular:
+- [List Processing](https://www.gnu.org/software/emacs/manual/html_node/eintr/List-Processing.html#List-Processing)
+- [Writing Functions](https://www.gnu.org/software/emacs/manual/html_node/eintr/Writing-Defuns.html#Writing-Defuns)
+- [List Operations](https://www.gnu.org/software/emacs/manual/html_node/eintr/car-cdr-_0026-cons.html#car-cdr-_0026-cons) (given this is a list based language...)
+- [Loops And Recursion](https://www.gnu.org/software/emacs/manual/html_node/eintr/Loops-_0026-Recursion.html#Loops-_0026-Recursion)
+
+Also on a similar note, Scheme is another Lisp dialect and Andy Balam's excellent introduction will tech you a lot which applies to Emacs Lisp too, check it out: https://www.youtube.com/watch?v=byofGyW2L10

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How Much Would You Pay To Open A Box That Might Contain A Ferrari?
+title:  How Much Would You Pay To Open A Box That Might Contain A Ferrari?
 ---
 
 ## The Setup
