@@ -45,20 +45,24 @@ so for example if you want to print out something based on if your current line 
 note the brackets around what-line to call it.
 
 ## Writing Functions
-The defun keyword is used to define a function in elisp. The pattern is as follows
+The defun keyword is used to define a function. The pattern is as follows
 ``` emacs-lisp
 (defun function-name (parameter1 parameter2 etc.)
     (code to execute))
 ```
-for examxple a function taking two numbers and adding them would look like
+so to write a function taking two numbers and adding them we might do something like this
 ``` emacs-lisp
 (defun add-numbers (num1 num2)
     (+ num1 num2))
 
+```
+which you can then invoke with
+``` emacs-lisp
 (add-numbers 3 5)
 ```
+This is easily combined with the above flow control to allow you to now start writing some useful code. The missing piece is now how to interact with Emacs itself.
 
-## Manipulating The Buffer
+## Interacting With Emacs
 The main functions we will care about are:
 1. Inserting text
 2. Moving around the buffer
@@ -79,9 +83,21 @@ You can also try the following function
 ```
 which will take you to the 0'th character of a file. You can and should experiment with (goto-char (point-max)) and (goto-char (point-min)) too.
 
-From here you now have enough knowledge to jump around a buffer. For example chaining (goto-char 0) and then a search-forward you can easily search a buffer for a piece of text. 
+To actually add text to a buffer you use the insert function followed by a string or set of space separated strings and string variables. So if we wanted to insert a name at the cursor we write
+``` emacs-lisp
+(insert "Ted")
+```
+or if we want to take a surname as a parameter and add it to a first name
+``` emacs-lisp 
+(defun add-surname (surname)
+    (insert "James " surname))
+    
+(add-surname "Cordon")
+```
 
-## Interacting With Emacs
+Together with defun we could now write a funciton chaining (goto-char 0) and then a search-forward allowing you to search a buffer for a piece of text and insert something at that point. You can see already how this could be powerful for automating simple tasks. The question is now, how do we access our functions from around emacs? 
+
+## Exposing Your Functions To Emacs 
 In order to make a function callable from within the emacs interface you need the 'interactive' keyword. This exposes your function to M-x. If a function is marked with 'interactive' you can then call M-x function-name, and the function will be executed. The format of an interactive function is as follows
 ``` emacs-lisp
 (defun function-name (param1, param2, ...)
@@ -112,6 +128,8 @@ You can use a new line to separate input from the user as demonstrated here taki
     (insert "I am " name " from " place))
 ```
 printing 'I am x from y' at the end of your current file when you call it with M-x name-func.
+
+TODO: key bindings
 
 ## Next Steps
 Congratulations you can now write and evaluate some Emacs Lisp, this is just the tip of the iceburg. Next up you should understand the groundings of Emacs Lisp better, ideally from the manual itself, in particular:
