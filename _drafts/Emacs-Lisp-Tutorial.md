@@ -87,7 +87,7 @@ To actually add text to a buffer you use the insert function followed by a strin
 ``` emacs-lisp
 (insert "Ted")
 ```
-or if we want to take a surname as a parameter and add it to a first name
+or if we want to take a surname as a parameter and add it to a first name (remember C-x C-e the function, then C-x C-e on the function call)
 ``` emacs-lisp 
 (defun add-surname (surname)
     (insert "James " surname))
@@ -95,7 +95,18 @@ or if we want to take a surname as a parameter and add it to a first name
 (add-surname "Cordon")
 ```
 
-Together with defun we could now write a funciton chaining (goto-char 0) and then a search-forward allowing you to search a buffer for a piece of text and insert something at that point. You can see already how this could be powerful for automating simple tasks. The question is now, how do we access our functions from around emacs? 
+After all this moving around the file, you may want to leave your cursor where it started. That's what save-excursion is for, if you wrap your code in a save-excursion then after the statements are executed your cursor returns to where it was. For example
+``` emacs-lisp
+(defun there-and-back ()
+    (save-excursion
+        (previous-line)
+        (insert "ABOVE")))
+
+(there-and-back)
+```
+this snippet moves up a line, inserts the word 'ABOVE' and then returns to where you pressed C-x C-e.
+
+Together with defun we could now write a funciton chaining (goto-char 0) and then a search-forward allowing you to search a buffer for a piece of text, insert something at that point and return to where you started. You can see already how this could be powerful for automating simple tasks. The question is now, how do we access our functions from around emacs? 
 
 ## Exposing Your Functions To Emacs 
 In order to make a function callable from within the emacs interface you need the 'interactive' keyword. This exposes your function to M-x. If a function is marked with 'interactive' you can then call M-x function-name, and the function will be executed. The format of an interactive function is as follows
@@ -122,20 +133,24 @@ There are many more character code options here which can be found here: https:/
 You can use a new line to separate input from the user as demonstrated here taking a name and place from the user
 ``` emacs-lisp
 (defun name-func (name place)
-    "Take a name and place from the user and print a string with these values."
+    "Take a name and place from the user and print a string with these values at the end of the file."
     (interactive "MName:\nMPlace:")
-    (goto-char (point-max))
-    (insert "I am " name " from " place))
+    (save-excursion 
+        (goto-char (point-max))
+        (insert "I am " name " from " place)))
 ```
 printing 'I am x from y' at the end of your current file when you call it with M-x name-func.
 
-TODO: key bindings
+## Adding Key Bindings
+Now that you have an interactive function you can bind it to a global keyboard shortcut or a mode specific shortcut.
 
 ## Next Steps
 Congratulations you can now write and evaluate some Emacs Lisp, this is just the tip of the iceburg. Next up you should understand the groundings of Emacs Lisp better, ideally from the manual itself, in particular:
 - [List Processing](https://www.gnu.org/software/emacs/manual/html_node/eintr/List-Processing.html#List-Processing)
 - [Writing Functions](https://www.gnu.org/software/emacs/manual/html_node/eintr/Writing-Defuns.html#Writing-Defuns)
+- [Getting And Switching Buffers](https://www.gnu.org/software/emacs/manual/html_node/eintr/Practicing-Evaluation.html#Practicing-Evaluation)
 - [List Operations](https://www.gnu.org/software/emacs/manual/html_node/eintr/car-cdr-_0026-cons.html#car-cdr-_0026-cons) (given this is a list based language...)
 - [Loops And Recursion](https://www.gnu.org/software/emacs/manual/html_node/eintr/Loops-_0026-Recursion.html#Loops-_0026-Recursion)
+- [Binding Functions To Keys](https://www.masteringemacs.org/article/mastering-key-bindings-emacs)
 
 Also on a similar note, Scheme is another Lisp dialect and Andy Balam's excellent introduction will tech you a lot which applies to Emacs Lisp too, check it out: https://www.youtube.com/watch?v=byofGyW2L10
