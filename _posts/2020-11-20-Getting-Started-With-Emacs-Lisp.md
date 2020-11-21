@@ -4,7 +4,7 @@ title: Getting Started With Emacs Lisp Hands On - A Practical Beginners Tutorial
 ---
 
 ## What is Emacs Lisp
-Emacs Lisp is the programming language that forms the foundation of the Emacs text editor. It also allows users to interact, customise and extend emacs functionality. I will assume you already know what Emacs is and would like to experiment with Elisp. I will also assume you know basic programming concepts like variables, functions and parameters. This will be an example based tutorial, centered around showing rather than telling you'll see enough to get you started with Emacs Lisp and to interact with Emacs through code.
+Emacs Lisp is the programming language that forms the foundation of the Emacs text editor. It also allows users to interact, customise and extend emacs functionality. I will assume you already know what Emacs is and would like to experiment with Emacs Lisp. I will also assume you know basic programming concepts like variables, functions and parameters. This will be an example based tutorial, centered around showing rather than telling you'll see enough to get you started with Emacs Lisp and to interact with Emacs through code.
 
 ## The Very Basics: Lets Go (Run Every Example Yourself)
 Open (your preferred flavour of) Emacs and type the following into an empty buffer 
