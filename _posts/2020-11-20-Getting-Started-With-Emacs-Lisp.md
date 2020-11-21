@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Started With Emacs Lisp Hands On: A Practical Beginners Tutorial
+title: Getting Started With Emacs Lisp Hands On - A Practical Beginners Tutorial
 ---
 
 ## What is Emacs Lisp
