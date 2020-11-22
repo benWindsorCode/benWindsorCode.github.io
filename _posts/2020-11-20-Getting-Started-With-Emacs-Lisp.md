@@ -32,13 +32,13 @@ We will cover only a simlpe if/else statement as this will serve your basic purp
 ``` emacs-lisp
 (if (condition)
     (execute if condition true)
-    (execute if condition false))
+  (execute if condition false))
 ```
 so for example if you want to print out something based on if your current line number we could write
 ``` emacs-lisp
 (if (eq (what-line) "Line 20")
     (princ "Im at line 20")
-    (princ "Im not at line 20"))
+  (princ "Im not at line 20"))
 ```
 note the new function what-line I'm using, and the brackets around what-line to call it. Try calling (what-line) on its own and examine the result.
 
